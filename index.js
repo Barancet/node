@@ -1,4 +1,6 @@
-const http = require("http");
+const { response } = require("express");
+const express = require("express");
+const app = express();
 
 let notes = [
   {
@@ -21,9 +23,32 @@ let notes = [
   },
 ];
 
-const app = http.createServer((request, response) => {
-  response.writeHead(200, { "Content-Type": "application/json" });
-  response.end(JSON.stringify(notes));
+app.get("/", (req, res) => {
+  res.send("<h1>Hello !</h1>");
+});
+
+app.get("/api/notes/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const note = notes.find((note) => { 
+    console.log(note)
+    return note.id === id});
+
+  if (note) {
+    res.json(note);
+  } else {
+    res.status(400).send("ID Does not exist");
+  }
+
+  //console.log(note, "note");
+});
+
+app.delete("/api/notes/:id", (req, res) => {
+  const id = Number(request.params.id);
+  notes = notes.filter((note) => note.id !== id);
+});
+
+app.get("/api/notes", (req, res) => {
+  res.json(notes);
 });
 
 const PORT = 3001;
