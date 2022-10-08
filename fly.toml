@@ -1,6 +1,6 @@
-# fly.toml file generated for purple-resonance-2289 on 2022-09-21T15:05:19-04:00
+# fly.toml file generated for black-morning-2337 on 2022-10-04T20:33:47-04:00
 
-app = "purple-resonance-2289"
+app = "black-morning-2337"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
