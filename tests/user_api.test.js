@@ -8,7 +8,7 @@ const helper = require('./test_helper')
 const app = require('../app')
 const api = supertest(app)
 
-//...
+//... remove some unused tests
 
 describe('when there is initially one user in db', () => {
   beforeEach(async () => {
